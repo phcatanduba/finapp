@@ -1,0 +1,49 @@
+version: "3.9"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: finapp_api
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: postgres://finapp:finapp_secret@postgres:5432/finapp?sslmode=disable
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - finapp_network
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: finapp_postgres
+    environment:
+      POSTGRES_USER: finapp
+      POSTGRES_PASSWORD: finapp_secret
+      POSTGRES_DB: finapp
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U finapp -d finapp"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    restart: unless-stopped
+    networks:
+      - finapp_network
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  finapp_network:
+    driver: bridge

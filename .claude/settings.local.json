@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(go mod init finapp)",
+      "Bash(go get github.com/go-chi/chi/v5@latest github.com/jackc/pgx/v5@latest github.com/golang-jwt/jwt/v5@latest github.com/golang-migrate/migrate/v4@latest github.com/golang-migrate/migrate/v4/database/postgres github.com/golang-migrate/migrate/v4/source/file github.com/joho/godotenv@latest github.com/google/uuid@latest golang.org/x/crypto@latest)",
+      "Bash(go build ./...)",
+      "Bash(go get github.com/jackc/pgx/v5/pgxpool@v5.8.0)",
+      "Bash(go mod tidy)",
+      "Read(//Users/phenrique/Desktop/**)",
+      "Bash(npx create-next-app@latest finapp-web --typescript --tailwind --app --no-src-dir --import-alias \"@/*\" --no-eslint --yes)",
+      "Bash(npm install @tanstack/react-query react-hook-form zod @hookform/resolvers zustand recharts next-themes lucide-react sonner date-fns clsx tailwind-merge)",
+      "Bash(npx shadcn@latest init --defaults --yes)",
+      "Bash(npx shadcn@latest add card input label select sheet dialog table badge progress tabs skeleton separator avatar dropdown-menu --yes)",
+      "Bash(npx shadcn@latest add textarea --yes)",
+      "Bash(npm run build)",
+      "Bash(npm install @pluggy/connect-widget)"
+    ]
+  }
+}

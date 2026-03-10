@@ -1,0 +1,2 @@
+DROP TABLE IF EXISTS goals;
+DROP TYPE IF EXISTS goal_type;
