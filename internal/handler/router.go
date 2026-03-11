@@ -22,10 +22,11 @@ type Handlers struct {
 	Projection  *ProjectionHandler
 }
 
-func NewRouter(h Handlers, authSvc service.AuthService) http.Handler {
+func NewRouter(h Handlers, authSvc service.AuthService, corsOrigins string) http.Handler {
 	r := chi.NewRouter()
 
 	// Global middleware
+	r.Use(appMiddleware.CORS(corsOrigins))
 	r.Use(chiMiddleware.RequestID)
 	r.Use(appMiddleware.Recovery)
 	r.Use(appMiddleware.Logging)

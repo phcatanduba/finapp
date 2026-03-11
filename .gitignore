@@ -9,6 +9,8 @@
 /bin/
 /tmp/
 
+.claude
+
 # Coverage
 *.coverprofile
 coverage.out

@@ -22,6 +22,8 @@ type Config struct {
 	PluggyClientSecret  string
 	PluggyBaseURL       string
 	PluggyWebhookSecret string
+
+	CORSAllowedOrigins string
 }
 
 func Load() (*Config, error) {
@@ -39,6 +41,7 @@ func Load() (*Config, error) {
 		PluggyClientSecret:  mustGetEnv("PLUGGY_CLIENT_SECRET"),
 		PluggyBaseURL:       getEnv("PLUGGY_BASE_URL", "https://api.pluggy.ai"),
 		PluggyWebhookSecret: getEnv("PLUGGY_WEBHOOK_SECRET", ""),
+		CORSAllowedOrigins:  getEnv("CORS_ALLOWED_ORIGINS", "*"),
 	}
 
 	if len(cfg.JWTSecret) < 32 {

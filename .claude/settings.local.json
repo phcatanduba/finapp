@@ -7,13 +7,16 @@
       "Bash(go get github.com/jackc/pgx/v5/pgxpool@v5.8.0)",
       "Bash(go mod tidy)",
       "Read(//Users/phenrique/Desktop/**)",
+      "Read(//home/ph/**)",
       "Bash(npx create-next-app@latest finapp-web --typescript --tailwind --app --no-src-dir --import-alias \"@/*\" --no-eslint --yes)",
       "Bash(npm install @tanstack/react-query react-hook-form zod @hookform/resolvers zustand recharts next-themes lucide-react sonner date-fns clsx tailwind-merge)",
       "Bash(npx shadcn@latest init --defaults --yes)",
       "Bash(npx shadcn@latest add card input label select sheet dialog table badge progress tabs skeleton separator avatar dropdown-menu --yes)",
       "Bash(npx shadcn@latest add textarea --yes)",
       "Bash(npm run build)",
-      "Bash(npm install @pluggy/connect-widget)"
+      "Bash(npm install @pluggy/connect-widget)",
+      "Read(//usr/local/go/bin/**)",
+      "Read(//snap/bin/**)"
     ]
   }
 }

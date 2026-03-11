@@ -97,7 +97,7 @@ func main() {
 		Projection:  handler.NewProjectionHandler(projectionSvc),
 	}
 
-	router := handler.NewRouter(handlers, authSvc)
+	router := handler.NewRouter(handlers, authSvc, cfg.CORSAllowedOrigins)
 
 	server := &http.Server{
 		Addr:         fmt.Sprintf(":%s", cfg.Port),
